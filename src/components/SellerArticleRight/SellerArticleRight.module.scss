@@ -1,0 +1,145 @@
+.Article {
+    &_Right {
+    max-width: 621px;
+    }
+
+    &_Block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    }
+
+    &_Title {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 32px;
+    line-height: 45px;
+    font-weight: 500;
+    color: #000000;
+    }
+
+    &_Info {
+    margin-bottom: 34px;
+    }
+
+    &_DateCity {
+    font-size: 16px;
+    line-height: 21px;
+    color: #5F5F5F;
+    margin-bottom: 4px;
+    }
+
+    &_Link {
+    font-size: 16px;
+    line-height: 21px;
+    color: #009EE4;
+    }
+
+    &_Price {
+    font-size: 28px;
+    line-height: 39px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    }
+
+
+    &_Button {
+    background-color: #009EE4;
+    border-radius: 6px;
+    border: 1px solid #009EE4;
+    width: 214px;
+    height: 62px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+
+        &_Block {
+        display: flex;
+        flex-wrap: wrap;
+        }    
+
+        &:hover {
+        background-color: #0080C1;
+        }
+    }
+
+    &_Author {
+    margin-top: 34px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+        &_Img {
+        width: 40px;
+        height: 40px;
+        background-color: #F0F0F0;
+        border-radius: 50%;
+        align-self: center;
+        }
+
+        &_Content {
+        margin-left: 12px;
+        }
+
+        &_Name {
+        font-size: 20px;
+        line-height: 26px;
+        font-weight: 600;
+        color: #009EE4;
+        }
+
+        &_About {
+        font-size: 16px;
+        line-height: 32px;
+        color: #5F5F5F;
+        }
+
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .Article {
+        &_Right {
+            width: 100%;
+            padding: 0px 5px;
+        }
+        
+        &_Title {
+            font-size: 20px;
+            line-height: 26px;
+            margin-bottom: 6px;
+        }
+    
+        &_Info,
+        &_DateCity {
+            font-size: 16px;
+            line-height: 21px;
+            color: #5F5F5F;
+            margin-bottom: 6px;
+        }    
+    
+        &_Button {
+            width: 100%;
+            height: 57px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 20px;
+            min-width: 90vw;
+
+            &_Block {
+                align-self: center;
+            }
+
+            & span {
+                font-size: 12px;
+            }
+        }
+
+        &_Author {
+            align-self: center;
+        }
+    }
+}

@@ -1,0 +1,267 @@
+.Article {
+
+    &_Right {
+        max-width: 621px;
+    }
+
+    &_Block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &_Title {
+        margin-bottom: 10px;
+    }
+
+    &_Info {
+        margin-bottom: 34px;
+    }
+
+    &_Date,
+    &_City {
+        font-size: 16px;
+        line-height: 21px;
+        color: #5F5F5F;
+        margin-bottom: 4px;
+    }
+    &_Link {
+        font-size: 16px;
+        line-height: 21px;
+        color: #009EE4;              
+    }
+
+    &_Price {
+        font-size: 28px;
+        line-height: 39px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    &_BtnBlock {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &_BtnFirst {
+        background-color: #009EE4;
+        border-radius: 6px;
+        border: 1px solid #009EE4;       
+        height: 50px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1;
+        color: #FFFFFF;
+        margin-bottom: 10px;
+        width: 189px;
+        margin-right: 10px;    
+        
+        &:hover {
+            background-color: #0080C1;
+          }
+    }
+
+    &_BtnSecond {
+        background-color: #009EE4;
+        border-radius: 6px;
+        border: 1px solid #009EE4;       
+        height: 50px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1;
+        color: #FFFFFF;
+        margin-bottom: 10px;
+        width: 225px;
+
+        &:hover {
+            background-color: #0080C1;
+          }
+    }
+
+    &_Author {
+        margin-top: 24px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        
+        &_Img {
+            width: 40px;
+            height: 40px;
+            background-color: #F0F0F0;
+            border-radius: 50%;
+
+            &_Img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    object-fit: cover;
+                }
+        }
+
+        &_Cont {
+            margin-left: 12px;
+        }
+
+        &_Name {
+            font-size: 20px;
+            line-height: 26px;
+            font-weight: 600;
+            color: #009EE4;
+        }
+
+        &_About {
+            font-size: 16px;
+            line-height: 32px;
+            color: #5F5F5F;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Article {
+  
+      &_Left {
+        max-width: 100%;
+        width: 100%;
+        min-width: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+  
+      &_FillImg {
+        max-width: 100%;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+  
+        &::before {
+            content: "";
+            display: block;
+            width: 23px;
+            height: 23px;
+            background-color: transparent;
+            border-top: 2px solid #000000;
+            border-left: 2px solid #000000;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 24px;
+            left: 32px;
+            cursor: pointer;
+        }
+      }
+  
+      &_Img {
+        width: 100%;
+        min-width: 320px;
+        height: auto;
+        min-height: 320px;
+        margin: 0 0px;
+      }
+  
+      &_ImgBar {
+        display: none;
+      }
+  
+      &_ImgBarMob {
+        display: block;
+        width: 68px;
+        height: 8px;
+        position: absolute;
+        bottom: 20px;
+        left: calc(50% - (68px/2)); 
+        display: flex;
+        justify-content: space-between;
+      }
+  
+      &_ImgBarMobCircle {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: 1px solid #FFFFFF;
+      }
+  
+      &_Right {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 20px;
+      }
+  
+      &_Title {
+        margin-bottom: 10px;
+      }
+  
+      &_Info {
+        margin-bottom: 20px;
+      }
+  
+      &_DateCity {
+        font-size: 14px;
+        line-height: 17px;
+        color: #5F5F5F;
+        margin-bottom: 4px;
+      }
+  
+      &_Link {
+        font-size: 14px;
+        line-height: 19px;
+        color: #009EE4;
+      }
+  
+      &_Price {
+        font-size: 18px;
+        line-height: 25px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+  
+    &_BtnFirst {
+      width: 100%;
+      min-width: 320px;
+      height: auto;
+      min-height: 46px;
+      margin-bottom: 10px;
+      margin-right: 0px;
+
+      & span {
+        font-size: 12px;
+      }
+
+    }
+
+    &_BtnSecond {
+      width: 100%;
+      min-width: 320px;
+      height: auto;
+      min-height: 46px;
+      margin: 0 0px;
+
+      & span {
+        font-size: 12px;
+      }
+    }
+  
+      &_Author {
+        margin-top: 30px;
+        margin-bottom: 30px;
+  }
+  }
+  
+  .Author {
+  
+      &_Name {
+        font-size: 18px;
+        line-height: 23px;
+        font-weight: 600;
+      }
+  
+      &_About {
+        font-size: 14px;
+        line-height: 28px;
+      }
+  }
+  }

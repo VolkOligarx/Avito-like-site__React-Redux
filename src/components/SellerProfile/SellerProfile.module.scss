@@ -1,0 +1,201 @@
+.Profile {
+width: 100%;
+padding: 0 0 70px;
+
+    &_Content {
+    width: 100%;
+    }
+
+    &_Seller {
+    display: flex;
+    align-items: top;
+    justify-content: start;
+
+        &_Left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 50px;
+        }
+
+        &_Img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;            
+
+            &_Block {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background-color: #F0F0F0;
+            }
+        }
+
+        &_Right {
+        width: auto;
+        }
+
+        &_Title {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 40px;
+        color: #000000;
+        margin-bottom: 0px;
+        }
+
+        &_City {
+        font-size: 16px;
+        line-height: 21px;
+        color: #5F5F5F;
+        margin-bottom: 10px;
+        }
+
+        &_ImgMobBlock {
+        display: none;
+        }
+
+        &_ImgMob {
+        display: block;
+        width: 132px;
+        height: 132px;
+        border-radius: 50%;
+        background-color: #F0F0F0;
+        }
+
+        &_Button {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+        background-color: #009EE4;
+        border-radius: 6px;
+        border: 1px solid #009EE4;
+        width: 214px;
+        height: 62px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 22px;
+        color: #FFFFFF;
+        font-family: 'Roboto', sans-serif;
+
+            &:hover {
+            background-color: #0080C1;
+            }
+        }
+
+        &_H3 {
+        margin-bottom: 20px;
+        font-size: 32px;
+        line-height: 40px;
+        font-weight: 500;
+        color: #000000;
+        }
+    }
+}
+
+.Main {
+
+    &_CenterBlock {
+    margin: 0 auto;
+    }
+
+    &_Container {
+    max-width: 1178px;
+    margin: 0 auto;
+    padding: 52px 10px 37px;
+    }
+
+    &_H2 {
+    display: flex;
+    margin-left: 30px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 42px;
+    color: #000000;
+    margin-bottom: 30px;
+
+        &:hover::before {
+        border-top: 2px solid #0080C1;
+        border-left: 2px solid #0080C1;
+        }
+    }
+
+    &_Content {
+    width: 100%;
+    margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 590px) {
+
+.Profile {
+
+    &_Seller {
+        display: flex;
+        flex-direction: column;
+
+        &_Img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;   
+        }
+
+        &_Right {
+        display: flex;
+        flex-direction: column;
+        }
+
+        &_Left {
+            margin: 0;
+        }
+
+        &_Button {
+        width: 90vw;
+        }
+
+        &_H3 {
+        font-size: 18px;
+        line-height: 100%;
+        }
+    }
+}
+
+.Main {
+    &_Container{
+    padding: 85px 10px 84px;
+    }
+
+    &_H2{
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+        &::before {
+        content: "";
+        display: block;
+        width: 12px;
+        height: 12px;
+        background-color: transparent;
+        border-top: 2px solid #000000;
+        border-left: 2px solid #000000;
+        transform: rotate(-45deg);
+        position: absolute;
+        top: 9px;
+        left: 13px;
+        cursor: pointer;
+        }
+    }
+}
+}
+  

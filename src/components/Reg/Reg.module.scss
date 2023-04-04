@@ -1,0 +1,210 @@
+.ContainerEnter {
+    max-width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    background-color: #F4F5F6;
+}
+
+.Modal {
+
+    &_LogoLinkMob {
+        display: none;
+        }
+
+    &_LogoMobImg {
+        display: none;
+    }
+
+    &_BtnSignUp:hover {            
+            background-color: #0080C1;            
+        }
+    
+    &_BtnSignUp:active {
+        background-color: #0080C1;
+    }
+
+    &_Block {
+        position: absolute;
+        z-index: 2;
+        left: calc(50% - (366px/2));
+        top: calc(50% - (647px/2));
+        opacity: 1;
+    }
+
+    &_FormLogin {
+        width: 366px;
+        height: 750px;
+        background-color: #FFFFFF;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 43px 42px 47px;
+
+        & input:first-child {
+            margin-bottom: 30px;
+        }
+    }
+
+    &_Logo {
+        width: 140px;
+        height: 21px;
+        margin-bottom: 34px;
+        background-color: transparent;
+
+        & img {
+            width: 140px;
+            height: auto;
+        }
+    }
+
+    &_Input {
+        width: 100%;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid #D0CECE;
+        padding: 8px 1px;
+        margin-bottom: 38px;
+
+        &::placeholder {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 24px;
+            letter-spacing: -0.05px;
+            color: #D0CECE;
+        }
+
+
+    }
+
+
+    &_BtnSignUp {
+        width: 278px;
+        height: 62px;
+        background-color: #009EE4;
+        border-radius: 6px;
+        border: none;
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & span {
+            width: 100%;
+            height: 100%;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 24px;
+            letter-spacing: -0.05px;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .ContainerEnter {
+        max-width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        position: relative;
+        background-color: #F4F5F6;
+    }
+    
+    .Modal {
+        width: 100%;
+        height: 55px;
+        background-color: #009EE4;
+        box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.05);
+        margin-bottom: 0px;
+        padding: 11px 17px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 3;
+    
+
+        &_LogoLinkMob {
+        display: block;
+        width: 32px;
+        height: 32px;
+        }
+
+        &_LogoMobImg {
+        width: 32px;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        }
+
+    
+        &_Block {
+            position: absolute;
+            z-index: 2;
+            left: calc(50% - (320px/2));
+            // top: 55px;
+            opacity: 1;
+        }
+    
+        &_FormLogin {
+            width: 320px;
+            height: auto;
+            background-color: #FFFFFF;
+            border-radius: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+    
+        &_Logo {
+            width: 120px;
+            height: 18px;
+            margin-bottom: 30px;
+            background-color: transparent;
+    
+            & img {
+                width: 120px;
+                height: auto;
+            }
+        }
+    
+        &_Input {
+            width: 100%;
+            border: 1px solid #D0CECE;
+            padding: 9px 17px;
+            border-radius: 30px;
+            padding: 9px 19px;
+            margin-bottom: 14px;
+    
+            &::placeholder {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 21px;
+                color: #B3B3B3;
+            }
+        }
+    
+    
+    
+        &_BtnSignUp {
+            height: 46px;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            border: none;
+    
+            & a {
+                font-size: 16px;
+                line-height: 24px;
+      
+            }
+        }
+    }    
+}

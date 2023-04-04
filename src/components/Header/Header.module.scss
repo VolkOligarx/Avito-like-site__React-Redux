@@ -1,0 +1,95 @@
+.Header {
+background-color: #009EE4;
+display: flex;
+justify-content: flex-end;
+margin-bottom: 17px;
+padding-right: 141px;
+
+    &_Nav {
+    max-width: 1178px;
+    padding: 0 10px;
+    height: 79px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+    }
+
+    &_Button {
+    width: 224px;
+    height: 40px;
+    border: 1px solid #FFFFFF;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 1;
+    animation: shadow-drop-2-center 2.5s 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite both;
+
+        &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid #FFFFFF;
+        }
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .Header{
+    display: none;
+    }
+}
+
+@-webkit-keyframes shadow-drop-2-center {
+    0% {
+    -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        transform: scale(1);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    50% {
+    -webkit-transform: translateZ(50px);
+        transform: translateZ(50px);
+        transform: scale(1.2);
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+
+    }
+    100% {
+    -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        transform: scale(1);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
+  }
+  @keyframes shadow-drop-2-center {
+    0% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+              transform: scale(1);
+      -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+              box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    50% {
+    -webkit-transform: translateZ(50px);
+        transform: translateZ(50px);
+        transform: scale(1.2);
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+
+    }
+    100% {
+    -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        transform: scale(1);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
+}
+  

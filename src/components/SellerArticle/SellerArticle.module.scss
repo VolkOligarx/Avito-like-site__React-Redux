@@ -1,0 +1,40 @@
+.Main {
+    
+        &_Container {
+        max-width: 1178px;
+        margin: 0 auto;
+        padding: 10px 10px 13px;
+        }
+    }    
+
+.Article {
+    max-width: 1178px;
+    margin: 0 auto;
+    padding: 0 5px 70px;
+
+    &_Content {
+        display: flex;        
+        align-items: top;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .Main {
+    
+        &_Container {
+        padding-bottom: 0px;
+        padding-top: 54px;
+        }
+    }    
+
+.Article {
+    max-width: 1178px;
+    margin: 0 auto;
+    padding: 0px;
+
+    &_Content {
+        display: flex;
+        flex-direction: column;
+    }
+}
+}
