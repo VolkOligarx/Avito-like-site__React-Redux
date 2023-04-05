@@ -5,44 +5,75 @@ import s from "./AddNewAdv.module.scss";
 
 export const AddNewAdv = () => {
     const token = useSelector(state => state.auth.saveLogin)
-    const imagesArr = []
+    let imageArr = []
+    let srcArr
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
-    const [image1, setImage1] = useState('');
-    const [image2, setImage2] = useState('');
+    const [images, setImages] = useState([]);
+    const [imageSrc, setImageSrc] = useState([]);
 
-    const uploadContent1 = (event) => {
+    const uploadContent = (event) => {
         event.preventDefault()
-        event.target.files[0] && setImage1(event.target.files[0])
+        if (event.target.files[0]) {
+            imageArr = Object.assign([], images)
+            imageArr.push(event.target.files[0])
+            setImages(imageArr)
+            
+            imageArr.forEach(element => {
+                if (element.type && !element.type.startsWith('image/')) {
+                    console.log('File is not an image.', element.type, element);
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.addEventListener('load', () => {
+                    srcArr = Object.assign([], imageSrc)
+                    srcArr.push(reader.result)
+                    setImageSrc(srcArr)  
+                })
+                reader.readAsDataURL(element)
+            });    
+        }
+
     }
 
-    const uploadContent2 = (event) => {
+    const newAdv = async (event) => {
         event.preventDefault()
-        event.target.files[0] && setImage2(event.target.files[0])
-    }
 
-    const newAdv = (event) => {
-        event.preventDefault()
-        imagesArr.push(image1)
-        imagesArr.push(image2)
+        const searchParams = new URLSearchParams()
+        searchParams.append('title', title)
+        searchParams.append('description', description)
+        searchParams.append('price', price)
 
-        const formData = new FormData()
-        formData.append('array', imagesArr)
-        console.log(imagesArr);
-
-        axios.post(`http://localhost:8090/ads?title=${title}&description=${description}&price=${price}`, formData, {
+        try {
+            const res = await axios.post(`http://localhost:8090/ads?${searchParams}`, null, {
                 headers: {
-                'Content-type': 'multipart/form-data',
                 'authorization': `Bearer ${token.userToken}`
             }
-            }).then(res => {
-            console.log(res.data);
-            }).catch(error => {
-            console.log(error);
             })
+            console.log(res.data.id);
+            images.forEach(image => {
+                const formData = new FormData()
+                formData.append('file', image)
+                console.log(image);
+    
+                    axios.post(`http://localhost:8090/ads/${res.data.id}/image`, formData, {
+                        headers: {
+                        'Content-type': 'multipart/form-data',
+                        'authorization': `Bearer ${token.userToken}`
+                    }
+                    }).then(res => {
+                    console.log(res);
+                    }).catch(error=> {
+                    console.log(error);
+                    })
+            });    
+        } catch (error) {
+            console.log(error);
         }
+    }
 
     return(
         <div className={s.ContainerBg}>
@@ -65,28 +96,28 @@ export const AddNewAdv = () => {
                             <p className={s.Modal_FormNewArt_P}>Фотографии товара<span>не более 5 фотографий</span></p>
                             <div className={s.Modal_FormNewArt_BarImg}>
                                     <div className={s.Modal_FormNewArt_Img}>
-                                        <input className={s.Modal_FormNewArt_HiddenBtn} accept={'image/*'} type="file" name="advimg" onChange={(e) => uploadContent1(e)} />
-                                        <img src="" alt=""/>
+                                        <input className={s.Modal_FormNewArt_HiddenBtn} accept={'image/*'} type="file" name="advimg" onChange={(e) => uploadContent(e)} />
+                                        <img src={imageSrc[0]} alt=""/>
                                         <div className={s.Modal_FormNewArt_ImgCover}></div>                                    
                                     </div>
                                     <div className={s.Modal_FormNewArt_Img}>
-                                        <input className={s.Modal_FormNewArt_HiddenBtn} accept={'image/*'} type="file" name="advimg" onChange={(e) => uploadContent2(e)} />
-                                        <img src="" alt=""/>
+                                        <input className={s.Modal_FormNewArt_HiddenBtn} accept={'image/*'} type="file" name="advimg" onChange={(e) => uploadContent(e)} />
+                                        <img src={imageSrc[1]} alt=""/>
                                         <div className={s.Modal_FormNewArt_ImgCover}></div>                                    
                                     </div>
                                     <div className={s.Modal_FormNewArt_Img}>
-                                        <input className={s.Modal_FormNewArt_HiddenBtn} accept={'image/*'} type="file" name="advimg" onChange={(e) => uploadContent1(e)} />
-                                        <img src="" alt=""/>
+                                        <input className={s.Modal_FormNewArt_HiddenBtn} accept={'image/*'} type="file" name="advimg" onChange={(e) => uploadContent(e)} />
+                                        <img src={imageSrc[2]} alt=""/>
                                         <div className={s.Modal_FormNewArt_ImgCover}></div>                                    
                                     </div>
                                     <div className={s.Modal_FormNewArt_Img}>
-                                        <input className={s.Modal_FormNewArt_HiddenBtn} accept={'image/*'} type="file" name="advimg" onChange={(e) => uploadContent1(e)} />
-                                        <img src="" alt=""/>
+                                        <input className={s.Modal_FormNewArt_HiddenBtn} accept={'image/*'} type="file" name="advimg" onChange={(e) => uploadContent(e)} />
+                                        <img src={imageSrc[3]} alt=""/>
                                         <div className={s.Modal_FormNewArt_ImgCover}></div>                                    
                                     </div>
                                     <div className={s.Modal_FormNewArt_Img}>
-                                        <input className={s.Modal_FormNewArt_HiddenBtn} accept={'image/*'} type="file" name="advimg" onChange={(e) => uploadContent1(e)} />
-                                        <img src="" alt=""/>
+                                        <input className={s.Modal_FormNewArt_HiddenBtn} accept={'image/*'} type="file" name="advimg" onChange={(e) => uploadContent(e)} />
+                                        <img src={imageSrc[4]} alt=""/>
                                         <div className={s.Modal_FormNewArt_ImgCover}></div>                                    
                                     </div>
                             </div>

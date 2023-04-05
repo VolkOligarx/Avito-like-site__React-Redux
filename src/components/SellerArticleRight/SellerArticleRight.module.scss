@@ -78,6 +78,13 @@
         background-color: #F0F0F0;
         border-radius: 50%;
         align-self: center;
+
+            &_Img {
+                width: 100%;
+                height: auto;
+                display: block;
+                object-fit: cover;
+            }
         }
 
         &_Content {

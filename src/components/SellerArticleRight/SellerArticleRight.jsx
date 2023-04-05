@@ -62,12 +62,12 @@ return (
             </div>
             <div className={s.Article_Author}>
                 <NavLink to={'/sellerProfilePage'} className={s.Article_Author_Img}>
-                    <img className="Img" src={avatar()} alt="Avatar"/>
+                    <img className={s.Article_Author_Img_Img} src={avatar()} alt="Avatar"/>
                 </NavLink>
-                <div className={s.Article_Author_Content}>
-                    <NavLink to={'/sellerProfilePage'} className={s.Article_Author_Name}>{chosenOffer.user.name}</NavLink>
+                <NavLink to={'/sellerProfilePage'} className={s.Article_Author_Content}>
+                    <p className={s.Article_Author_Name}>{chosenOffer.user.name}</p>
                     <p className={s.Article_Author_About}>Продает товары с {sellsFromMonth} {sellsFromArr[0]}</p>
-                </div>
+                </NavLink>
             </div>
     </div>
 </div>

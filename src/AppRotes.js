@@ -9,6 +9,8 @@ import { SellerArticlePage } from "./pages/SellerArticlePage"
 import { SellerProfilePage } from "./pages/SellerProfilePage"
 import { useSelector } from "react-redux";
 import { AddNewAdvPage } from "./pages/AddNewAdvPage"
+import { AdvSettingsPage } from "./pages/AdvSettingsPage"
+import { ReviewsPage } from "./pages/ReviewsPage"
 
 export const AppRoutes = () => {
     const token = useSelector(state => state.auth.saveLogin.userToken)
@@ -22,11 +24,13 @@ export const AppRoutes = () => {
             <Route path="/sellerArticlePage" element={<SellerArticlePage />}/>
             <Route path="/loginPage" element={<LoginPage />}/>
             <Route path="/regPage" element={<RegPage />}/>
-            <Route path="/addNewAdvPage" element={<AddNewAdvPage />}/>
+            <Route path="/reviewsPage" element={<ReviewsPage />}/>
 
             <Route element={<ProtectedRoute isAllowed={Boolean(tokenState)} />}>
                 <Route path="/myArticlePage" element={<MyArticlePage />}/>
                 <Route path="/profilePage" element={<ProfilePage />}/>
+                <Route path="/addNewAdvPage" element={<AddNewAdvPage />}/>
+                <Route path="/advSettings" element={<AdvSettingsPage />}/>
             </Route>
         </Routes>
     )

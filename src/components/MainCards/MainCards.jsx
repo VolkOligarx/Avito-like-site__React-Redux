@@ -12,6 +12,7 @@ const currentOffers = useSelector(state => state.offers.currentOffers)
 const allOffers = useSelector(state => state.offers.allOffers)
 const sellerOffer = useSelector(state => state.offers.chosenOffer.user_id)
 const token = useSelector(state => state.auth.saveLogin)
+const personalId = useSelector(state => state.auth.personalInfo.id)
 
 let currentUserOffers = []
 
@@ -68,6 +69,10 @@ const offerToOpen = (offer) => {
     dispatch(chosenOffer(offer))
 } 
 
+const myOffer = (offer) => {
+    return personalId === offer.user_id ? "/myArticlePage" : "/sellerArticlePage"
+}
+
 return (
     
 <div className={s.MainCards}> {
@@ -94,12 +99,12 @@ return (
     <div className={s.MainCards_Item} key={offer.id}> 
         <div className={s.MainCards_Card}>
             <div className={s.MainCards_Card_Img}>
-                <NavLink onClick={()=>{offerToOpen(offer)}} to="/sellerArticlePage">
+                <NavLink onClick={()=>{offerToOpen(offer)}} to={myOffer(offer)}>
                     <img className="Img" src={img} target="_blank" alt="sale"/>
                 </NavLink>
             </div>
             <div>
-                <NavLink onClick={()=>{offerToOpen(offer)}} to="/sellerArticlePage">
+                <NavLink onClick={()=>{offerToOpen(offer)}} to={myOffer(offer)}>
                     <div className={s.MainCards_Card_Title}>{offer.title}</div>
                 </NavLink>
                 <div className={s.MainCards_Card_Price}>{offer.price} ₽</div>
