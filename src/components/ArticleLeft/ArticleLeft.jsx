@@ -36,11 +36,15 @@ export const ArticleLeft = () => {
                     }
                 </div>
                 <div className={s.Article_ImgBarMob}>
-                    <div className={s.Article_ImgBarMobCircle}></div>
-                    <div className={s.Article_ImgBarMobCircle}></div>
-                    <div className={s.Article_ImgBarMobCircle}></div>
-                    <div className={s.Article_ImgBarMobCircle}></div>
-                    <div className={s.Article_ImgBarMobCircle}></div>
+                    {
+                        chosenOffer.images.map((img) => {
+                            const chosenImg = `http://localhost:8090/${img.url}`
+
+                            return (
+                                <div onClick={() => changeTenis(chosenImg)} className={s.Article_ImgBarMobCircle} key={Math.random()}></div>
+                                )
+                        })
+                    }
                 </div>
             </div>
         </div>

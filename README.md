@@ -1,3 +1,15 @@
+Avito-like site as pet-project based on React + Redux
+
+This project is example of live working adv site in which you can post your adv for free, and find other people adv's
+
+author: Volk-Oligarx
+
+Lng: JS + React
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -12,7 +12,7 @@ const currentOffers = useSelector(state => state.offers.currentOffers)
 const allOffers = useSelector(state => state.offers.allOffers)
 const sellerOffer = useSelector(state => state.offers.chosenOffer.user_id)
 const token = useSelector(state => state.auth.saveLogin)
-const personalId = useSelector(state => state.auth.personalInfo.id)
+const personal = useSelector(state => state.auth.personalInfo)
 
 let currentUserOffers = []
 
@@ -46,19 +46,15 @@ switch (props.cards) {
         break;
 
     case 'myProfile':
-        const myOffersGet = async () => {
-            const res = await axios.get('http://localhost:8090/ads/me', {headers: {
-                'authorization': `Bearer ${token.userToken}`
-            }});
-            currentUserOffers = res.data
-            if (res.data.length === 0) {
+            currentUserOffers = allOffers.filter(offerId => {
+                return offerId.user_id === personal.id
+            })
+            if (currentUserOffers.length === 0) {
                 dispatch(cabinetAnimation(true))
             }
             else {
                 dispatch(cabinetAnimation(false))
             }
-        }
-        myOffersGet()
         break;
 
     default:
@@ -70,7 +66,7 @@ const offerToOpen = (offer) => {
 } 
 
 const myOffer = (offer) => {
-    return personalId === offer.user_id ? "/myArticlePage" : "/sellerArticlePage"
+    return personal.id === offer.user_id ? "/myArticlePage" : "/sellerArticlePage"
 }
 
 return (

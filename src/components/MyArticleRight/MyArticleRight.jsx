@@ -1,10 +1,9 @@
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import s from "./MyArticleRight.module.scss";
 
 export const MyArticleRight = () => {
-    const dispatch = useDispatch()
     const navigate = useNavigate()
     const chosenOffer = useSelector(state => state.offers.chosenOffer)
     const token = useSelector(state => state.auth.saveLogin)

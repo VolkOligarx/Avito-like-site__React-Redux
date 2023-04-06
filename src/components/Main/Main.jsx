@@ -17,7 +17,7 @@ export const Main = () => {
         const allOffersGet = async () => {
             const res = await axios.get('http://localhost:8090/ads');
             dispatch(allOffers(res.data)) 
-            dispatch(currentOffers(res.data))                   
+            dispatch(currentOffers(res.data))
         }
         allOffersGet()
 

@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import s from "./AddNewAdv.module.scss";
 
 export const AddNewAdv = () => {
     const token = useSelector(state => state.auth.saveLogin)
-    let imageArr = []
-    let srcArr
+    const navigate = useNavigate()
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -16,27 +16,26 @@ export const AddNewAdv = () => {
 
     const uploadContent = (event) => {
         event.preventDefault()
+        if (images.length >= 5) {
+            console.log(images);
+            return alert('Максимум 5 фотографий')
+        }
         if (event.target.files[0]) {
-            imageArr = Object.assign([], images)
-            imageArr.push(event.target.files[0])
-            setImages(imageArr)
-            
-            imageArr.forEach(element => {
-                if (element.type && !element.type.startsWith('image/')) {
-                    console.log('File is not an image.', element.type, element);
+            setImages([...images, ...event.target.files])
+
+            const newImageSrc =[]       
+                if (event.target.files[0].type && !event.target.files[0].type.startsWith('image/')) {
+                    console.log('File is not an image.', event.target.files[0].type, event.target.files[0]);
                     return;
                 }
                 
                 const reader = new FileReader();
                 reader.addEventListener('load', () => {
-                    srcArr = Object.assign([], imageSrc)
-                    srcArr.push(reader.result)
-                    setImageSrc(srcArr)  
+                    newImageSrc.push(reader.result)
+                    setImageSrc([...imageSrc, ...newImageSrc])  
                 })
-                reader.readAsDataURL(element)
-            });    
+                reader.readAsDataURL(event.target.files[0])   
         }
-
     }
 
     const newAdv = async (event) => {
@@ -73,6 +72,9 @@ export const AddNewAdv = () => {
         } catch (error) {
             console.log(error);
         }
+        setTimeout(() => {
+        navigate('/')
+        }, 500);
     }
 
     return(
