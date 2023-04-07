@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import UserInput from "../UserInput/UserInput";
 
 export const Reg = () => {
     const navigate = useNavigate()
@@ -70,19 +71,19 @@ export const Reg = () => {
                     <NavLink to={'/'} className={s.Modal_Logo}>
                         <img src="../img/logo_modal.png" alt="logo"/>
                     </NavLink>
-                    <input className={s.Modal_Input} type="text" name="login" id="formlogin" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <UserInput style={{marginBottom: '38px'}} type="text" name="login" id="formlogin" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
 
-                    <input className={s.Modal_Input} type="password" name="password" id="passwordFirst" placeholder="Пароль" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <UserInput style={{marginBottom: '38px'}} type="password" name="password" id="passwordFirst" placeholder="Пароль" value={password} onChange={(e) => setPassword(e.target.value)}/>
 
-                    <input className={s.Modal_Input} type="password" name="password" id="passwordSecond" placeholder="Повторите пароль" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}/>
+                    <UserInput style={{marginBottom: '38px'}} type="password" name="password" id="passwordSecond" placeholder="Повторите пароль" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}/>
 
-                    <input className={s.Modal_Input} type="text" name="first-name" id="first-name" placeholder="Имя (необязательно)" value={name} onChange={(e) => setName(e.target.value)}/>
+                    <UserInput style={{marginBottom: '38px'}} type="text" name="first-name" id="first-name" placeholder="Имя (необязательно)" value={name} onChange={(e) => setName(e.target.value)}/>
 
-                    <input className={s.Modal_Input} type="text" name="second-name" id="second-name" placeholder="Фамилия (необязательно)" value={surName} onChange={(e) => setSurName(e.target.value)}/>
+                    <UserInput style={{marginBottom: '38px'}} type="text" name="second-name" id="second-name" placeholder="Фамилия (необязательно)" value={surName} onChange={(e) => setSurName(e.target.value)}/>
 
-                    <input className={s.Modal_Input} type="text" name="city" id="city" placeholder="Город (необязательно)" value={city} onChange={(e) => setCity(e.target.value)}/>
+                    <UserInput style={{marginBottom: '38px'}} type="text" name="city" id="city" placeholder="Город (необязательно)" value={city} onChange={(e) => setCity(e.target.value)}/>
 
-                    <input className={s.Modal_Input} type="text" name="phone" id="phone" placeholder="Телефон (необязательно)" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+                    <UserInput style={{marginBottom: '38px'}} type="text" name="phone" id="phone" placeholder="Телефон (необязательно)" value={phone} onChange={(e) => setPhone(e.target.value)}/>
 
                     <button className={s.Modal_BtnSignUp} id="btnSignUp"><span>Зарегистрироваться</span> </button>
                 </form>

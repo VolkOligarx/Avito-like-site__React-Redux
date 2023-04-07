@@ -1,11 +1,13 @@
 import s from "./SellerArticleRight.module.scss";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 
 export const SellerArticleRight = () => {
     const chosenOffer = useSelector(state => state.offers.chosenOffer)
+    const [reviews, setReviews] = useState([])
 
     let date = chosenOffer.created_on.split('T')
     let shorterDate = date[0].split('-')
@@ -15,6 +17,18 @@ export const SellerArticleRight = () => {
     let openPh
     let hiddenPh
     let mobilePhone
+
+    useEffect(() => {
+        const getReviews = async () => {
+            try {
+                const res = await axios.get(`http://localhost:8090/ads/${chosenOffer.id}/comments`);
+                setReviews(res.data)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getReviews()    
+    },[])
 
     const avatar = () => {
         return chosenOffer.user.avatar !== null ? `http://localhost:8090/${chosenOffer.user.avatar}` : './img/avatarPlug.jpeg'
@@ -53,7 +67,7 @@ return (
             <div className={s.Article_Info}>
                 <p className={s.Article_DateCity}>Создано {shorterDate[2]}.{shorterDate[1]}.{shorterYear[1]} в {shorterTime[0]}:{shorterTime[1]}</p>
                 <p className={s.Article_DateCity}>{chosenOffer.user.city}</p>
-                <a className={s.Article_Link} href="/" target="_blank" rel="">23 отзыва</a>
+                <NavLink to={'/reviewsPage'} className={s.Article_Link} rel="">{reviews.length} отзыва</NavLink>
             </div>
             <p className={s.Article_Price}>{chosenOffer.price} ₽</p>
             <div className={s.Article_Button_Block}>

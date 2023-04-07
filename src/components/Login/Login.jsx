@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { saveLogin } from "../../redux/slices/authSlice";
+import UserInput from "../UserInput/UserInput";
 
 export const Login = () => {
     const dispatch = useDispatch()
@@ -68,8 +69,8 @@ export const Login = () => {
                     <NavLink to={'/'} className={s.Modal_Logo}>
                         <img src="../img/logo_modal.png" alt="logo"/>
                     </NavLink>
-                    <input className={s.Modal_Input} style={{marginBottom: '30px'}} type="text" name="login" id="formlogin" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                    <input className={s.Modal_Input} type="password" name="password" id="formpassword" placeholder="Пароль" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <UserInput style={{marginBottom: '30px'}} type="text" name="login" id="formlogin" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <UserInput type="password" name="password" id="formpassword" placeholder="Пароль" value={password} onChange={(e) => setPassword(e.target.value)}/>
                     <button className={s.Modal_BtnEnter} id="btnEnter"><span>Войти</span> </button>
                     <button className={s.Modal_BtnSignUp} id="btnSignUp"><NavLink to={'/regPage'}>Зарегистрироваться</NavLink> </button>
                 </form>

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import s from "./AdvSettings.module.scss";
 
 export const AdvSettings = () => {
-    const sellerOfferId = useSelector(state => state.offers.chosenOffer.id)
+    const sellerOffer = useSelector(state => state.offers.chosenOffer)
     const token = useSelector(state => state.auth.saveLogin)
     const navigate = useNavigate()
 
@@ -41,9 +41,8 @@ export const AdvSettings = () => {
 
     const newAdv = async (event) => {
         event.preventDefault()
-
         try {
-            const res = await axios.patch(`http://localhost:8090/ads/${sellerOfferId}`, {title: title, description: description, price: price}, {
+            const res = await axios.patch(`http://localhost:8090/ads/${sellerOffer.id}`, {title: title, description: description, price: price}, {
                 headers: {
                 'authorization': `Bearer ${token.userToken}`
             }

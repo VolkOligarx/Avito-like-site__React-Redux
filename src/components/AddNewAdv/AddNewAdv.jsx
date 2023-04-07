@@ -74,7 +74,7 @@ export const AddNewAdv = () => {
         }
         setTimeout(() => {
         navigate('/')
-        }, 500);
+        }, 900);
     }
 
     return(
@@ -126,7 +126,7 @@ export const AddNewAdv = () => {
                         </div>
                         <div className={s.Modal_FormNewArt_Block} style={{position: 'relative'}}>
                             <label htmlFor="price">Цена</label>
-                            <input className={s.Modal_FormNewArt_InputPrice} type="text" name="price" id="formName" onChange={(e) => setPrice(e.target.value)} />
+                            <input className={s.Modal_FormNewArt_InputPrice} type="number" name="price" id="formName" onChange={(e) => setPrice(e.target.value)} />
                             <div className={s.Modal_FormNewArt_InputPriceCover}></div>
                         </div> 
                         <button className={s.Modal_FormNewArt_BtnPub} id="btnPublish">Опубликовать</button>

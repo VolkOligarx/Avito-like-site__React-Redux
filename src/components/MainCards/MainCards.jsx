@@ -10,7 +10,7 @@ export const MainCards = (props) => {
 const dispatch = useDispatch()
 const currentOffers = useSelector(state => state.offers.currentOffers)
 const allOffers = useSelector(state => state.offers.allOffers)
-const sellerOffer = useSelector(state => state.offers.chosenOffer.user_id)
+const sellerOffer = useSelector(state => state.offers.chosenOffer.user.id)
 const token = useSelector(state => state.auth.saveLogin)
 const personal = useSelector(state => state.auth.personalInfo)
 

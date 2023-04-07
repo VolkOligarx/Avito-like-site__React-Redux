@@ -180,7 +180,9 @@
 
     &_Reviews {
         width: 100%;
-        height: 495px;
+        height: 100%;
+        display: flex;
+        align-self: flex-start;
 
         &_Review {
             display: flex;

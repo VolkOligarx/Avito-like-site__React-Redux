@@ -62,27 +62,6 @@
         }
     }
 
-    &_Input {
-        width: 100%;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        border-bottom: 1px solid #D0CECE;
-        padding: 8px 1px;
-
-        &::placeholder {
-            font-style: normal;
-            font-weight: 400;
-            font-size: 18px;
-            line-height: 24px;
-            letter-spacing: -0.05px;
-            color: #D0CECE;
-        }
-
-
-    }
-
-
 
     &_BtnEnter {
         width: 278px;
